@@ -1,69 +1,82 @@
-const express = require('express');
+const mongoose = require('mongoose')
+const express = require('express')
 const router = express.Router()
+const Joi = require('joi')
 
-router.use(express.json());
+// const sectors = [
+//   { id: 1, name: 'Arts & Culture' },
+//   { id: 2, name: 'Development & Vitality of Territories' },
+//   { id: 3, name: 'Environment' },
+//   { id: 4, name: 'Funding & Promotion of Volunteering' },
+//   { id: 5, name: 'Health & Social Services' },
+//   { id: 6, name: 'International Activity' },
+//   { id: 7, name: 'Other' },
+//   { id: 8, name: 'Rights & Defense of Group Interests' },
+//   { id: 9, name: 'Sports & Leisures' }
+// ]
 
-const sectors = [
-  { id: 1, name: 'Arts & Culture' },
-  { id: 2, name: 'Development & Vitality of Territories' },
-  { id: 3, name: 'Environment' },
-  { id: 4, name: 'Funding & Promotion of Volunteering' },
-  { id: 5, name: 'Health & Social Services' },
-  { id: 6, name: 'International Activity' },
-  { id: 7, name: 'Other' },
-  { id: 8, name: 'Rights & Defense of Group Interests' },
-  { id: 9, name: 'Sports & Leisures' }
-];
+const Sector = mongoose.model('Sector', new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    minlength: 5,
+    maxlength: 50
+  }
+}))
 
-router.get('/', (req, res) => {
-  res.send(sectors);
-});
+router.get('/', async (req, res) => {
+  const sectors = await Sector.find().sort('name')
+  res.send(sectors)
+})
 
-router.post('/', (req, res) => {
-  const { error } = validatesector(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.post('/', async (req, res) => {
+  const { error } = validateSector(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
 
-  const sector = {
-    id: sectors.length + 1,
+  let sector = new Sector({
     name: req.body.name
-  };
-  sectors.push(sector);
-  res.send(sector);
-});
+  })
 
-router.put('/:id', (req, res) => {
-  const sector = sectors.find(c => c.id === parseInt(req.params.id));
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.');
+  sector = await sector.save()
 
-  const { error } = validatesector(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  res.send(sector)
+})
 
-  sector.name = req.body.name;
-  res.send(sector);
-});
+router.put('/:id', async (req, res) => {
+  const { error } = validateSector(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
 
-router.delete('/:id', (req, res) => {
-  const sector = sectors.find(c => c.id === parseInt(req.params.id));
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.');
+  const sector = await Sector.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
+    new: true
+  })
 
-  const index = sectors.indexOf(sector);
-  sectors.splice(index, 1);
+  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
 
-  res.send(sector);
-});
+  res.send(sector)
+})
 
-router.get('/:id', (req, res) => {
-  const sector = sectors.find(c => c.id === parseInt(req.params.id));
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.');
-  res.send(sector);
-});
+router.delete('/:id', async (req, res) => {
+  const sector = await Sector.findByIdAndRemove(req.params.id)
 
-function validatesector(sector) {
+  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
+
+  res.send(sector)
+})
+
+router.get('/:id', async (req, res) => {
+  const sector = await Sector.findById(req.params.id)
+
+  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
+
+  res.send(sector)
+})
+
+function validateSector(sector) {
   const schema = {
-    name: Joi.string().min(3).required()
-  };
+    name: Joi.string().min(5).max(50).required()
+  }
 
-  return Joi.validate(sector, schema);i
+  return Joi.validate(sector, schema)
 }
 
-module.exports = router;
+module.exports = router
