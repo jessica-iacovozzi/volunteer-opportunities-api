@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
+const { Sector, validate } = require('../models/sector')
 const express = require('express')
 const router = express.Router()
-const Joi = require('joi')
 
 // const sectors = [
 //   { id: 1, name: 'Arts & Culture' },
@@ -15,22 +14,13 @@ const Joi = require('joi')
 //   { id: 9, name: 'Sports & Leisures' }
 // ]
 
-const Sector = mongoose.model('Sector', new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 50
-  }
-}))
-
 router.get('/', async (req, res) => {
   const sectors = await Sector.find().sort('name')
   res.send(sectors)
 })
 
 router.post('/', async (req, res) => {
-  const { error } = validateSector(req.body)
+  const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
   let sector = new Sector({
@@ -43,7 +33,7 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const { error } = validateSector(req.body)
+  const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
   const sector = await Sector.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
@@ -70,13 +60,5 @@ router.get('/:id', async (req, res) => {
 
   res.send(sector)
 })
-
-function validateSector(sector) {
-  const schema = {
-    name: Joi.string().min(5).max(50).required()
-  }
-
-  return Joi.validate(sector, schema)
-}
 
 module.exports = router

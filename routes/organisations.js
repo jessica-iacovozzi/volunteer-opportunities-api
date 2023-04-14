@@ -1,32 +1,6 @@
-const mongoose = require('mongoose')
+const { Organisation, validate } = require('../models/organisation')
 const express = require('express')
 const router = express.Router()
-const Joi = require('joi')
-
-const Organisation = mongoose.model('Organisation', new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 140
-  },
-  email: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 140
-  },
-  city: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 140
-  },
-  sectors: {
-    type: Array,
-    required: true
-  }
-}))
 
 router.get('/', async (req, res) => {
   const organisations = await Organisation.find().sort('name')
@@ -34,7 +8,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { error } = validateOrganisation(req.body)
+  const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
   let organisation = new Organisation({
@@ -50,7 +24,7 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const { error } = validateOrganisation(req.body)
+  const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
   const organisation = await Organisation.findByIdAndUpdate(req.params.id, {
@@ -80,16 +54,5 @@ router.get('/:id', async (req, res) => {
 
   res.send(organisation)
 })
-
-function validateOrganisation(organisation) {
-  const schema = {
-    name: Joi.string().min(3).max(140).required(),
-    email: Joi.string().min(3).max(140).required(),
-    city: Joi.string().min(3).max(140).required(),
-    sectors: Joi.array().required(),
-  }
-
-  return Joi.validate(organisation, schema)
-}
 
 module.exports = router
