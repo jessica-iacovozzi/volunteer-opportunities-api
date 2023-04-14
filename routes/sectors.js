@@ -1,5 +1,6 @@
 const { Sector, validate } = require('../models/sector')
 const express = require('express')
+const mongoose = require('mongoose')
 const router = express.Router()
 
 // const sectors = [
@@ -36,29 +37,33 @@ router.put('/:id', async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
-  const sector = await Sector.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
-    new: true
-  })
+  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
+    const sector = await Sector.findByIdAndUpdate(req.params.id, {
+      name: req.body.name
+    }, { new: true })
 
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
-
-  res.send(sector)
+    res.send(sector)
+  } else {
+    return res.status(404).send('The sector with the given ID was not found.')
+  }
 })
 
 router.delete('/:id', async (req, res) => {
-  const sector = await Sector.findByIdAndRemove(req.params.id)
-
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
-
-  res.send(sector)
+  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
+    const sector = await Sector.findByIdAndRemove(req.params.id)
+    res.send(sector)
+  } else {
+    return res.status(404).send('The sector with the given ID was not found.')
+  }
 })
 
 router.get('/:id', async (req, res) => {
-  const sector = await Sector.findById(req.params.id)
-
-  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
-
-  res.send(sector)
+  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
+    const sector = await Sector.findById(req.params.id)
+    res.send(sector)
+  } else {
+    return res.status(404).send('The sector with the given ID was not found.')
+  }
 })
 
 module.exports = router
