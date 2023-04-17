@@ -33,14 +33,14 @@ const organisationSchema = new mongoose.Schema({
 const Organisation = mongoose.model('Organisation', organisationSchema)
 
 function validateOrganisation(organisation) {
-  const schema = {
+  const schema = Joi.object({
     name: Joi.string().min(3).max(140).required(),
     email: Joi.string().min(3).max(320).required(),
     cityId: Joi.string().required(),
-    sectorId: Joi.string().required(),
-  }
+    sectorId: Joi.string().required()
+  })
 
-  return Joi.validate(organisation, schema)
+  return schema.validate(organisation)
 }
 
 exports.organisationSchema = organisationSchema

@@ -14,11 +14,11 @@ const citySchema = new mongoose.Schema({
 const City = mongoose.model('City', citySchema)
 
 function validateCity(city) {
-  const schema = {
+  const schema = Joi.object({
     name: Joi.string().min(3).max(50).required()
-  }
+  })
 
-  return Joi.validate(city, schema)
+  return schema.validate(city)
 }
 
 exports.citySchema = citySchema

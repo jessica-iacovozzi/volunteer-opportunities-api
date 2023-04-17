@@ -22,13 +22,13 @@ const Opportunity = mongoose.model('Opportunity', new mongoose.Schema({
 }))
 
 function validateOpportunity(opportunity) {
-  const schema = {
+  const schema = Joi.object({
     title: Joi.string().min(10).max(140).required(),
     description: Joi.string().min(10).max(255).required(),
     organisationId: Joi.string().required()
-  }
+  })
 
-  return Joi.validate(opportunity, schema)
+  return schema.validate(opportunity)
 }
 
 exports.Opportunity = Opportunity

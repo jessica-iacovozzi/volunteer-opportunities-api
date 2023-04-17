@@ -14,11 +14,11 @@ const sectorSchema = new mongoose.Schema({
 const Sector = mongoose.model('Sector', sectorSchema)
 
 function validateSector(sector) {
-  const schema = {
+  const schema = Joi.object({
     name: Joi.string().min(5).max(50).required()
-  }
+  })
 
-  return Joi.validate(sector, schema)
+  return schema.validate(sector)
 }
 
 exports.sectorSchema = sectorSchema
