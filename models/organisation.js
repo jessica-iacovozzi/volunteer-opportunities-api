@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
+const { citySchema } = require('./city')
+const { sectorSchema } = require('./sector')
 
-const Organisation = mongoose.model('Organisation', new mongoose.Schema({
+const organisationSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -19,31 +21,28 @@ const Organisation = mongoose.model('Organisation', new mongoose.Schema({
     match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
   },
   city: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 140,
-    trim: true
+    type: citySchema,
+    required: true
   },
-  sectors: {
-    type: Array,
-    validate: {
-      validator: function(v) { return v && v.length > 0; },
-      message: 'A organisation should have at least 1 sector.'
-    }
+  sector: {
+    type: sectorSchema,
+    required: true
   }
-}))
+})
+
+const Organisation = mongoose.model('Organisation', organisationSchema)
 
 function validateOrganisation(organisation) {
   const schema = {
     name: Joi.string().min(3).max(140).required(),
     email: Joi.string().min(3).max(320).required(),
-    city: Joi.string().min(3).max(140).required(),
-    sectors: Joi.array().required(),
+    cityId: Joi.string().required(),
+    sectorId: Joi.string().required(),
   }
 
   return Joi.validate(organisation, schema)
 }
 
+exports.organisationSchema = organisationSchema
 exports.Organisation = Organisation
 exports.validate = validateOrganisation

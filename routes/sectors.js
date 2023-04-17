@@ -3,18 +3,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 
-// const sectors = [
-//   { id: 1, name: 'Arts & Culture' },
-//   { id: 2, name: 'Development & Vitality of Territories' },
-//   { id: 3, name: 'Environment' },
-//   { id: 4, name: 'Funding & Promotion of Volunteering' },
-//   { id: 5, name: 'Health & Social Services' },
-//   { id: 6, name: 'International Activity' },
-//   { id: 7, name: 'Other' },
-//   { id: 8, name: 'Rights & Defense of Group Interests' },
-//   { id: 9, name: 'Sports & Leisures' }
-// ]
-
 router.get('/', async (req, res) => {
   const sectors = await Sector.find().sort('name')
   res.send(sectors)
