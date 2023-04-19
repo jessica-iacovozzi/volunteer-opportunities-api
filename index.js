@@ -3,6 +3,7 @@ const sectors = require('./routes/sectors')
 const organisations = require('./routes/organisations')
 const opportunities = require('./routes/opportunities')
 const cities = require('./routes/cities')
+const users = require('./routes/users')
 const express = require('express')
 const app = express()
 
@@ -15,6 +16,7 @@ app.use('/api/sectors', sectors)
 app.use('/api/organisations', organisations)
 app.use('/api/cities', cities)
 app.use('/api/opportunities', opportunities)
+app.use('/api/users', users)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
