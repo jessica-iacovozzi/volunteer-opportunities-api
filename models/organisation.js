@@ -14,11 +14,11 @@ const organisationSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     minlength: 5,
     maxlength: 320,
     lowercase: true,
-    trim: true,
-    match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    trim: true
   },
   city: {
     type: citySchema,
@@ -35,7 +35,7 @@ const Organisation = mongoose.model('Organisation', organisationSchema)
 function validateOrganisation(organisation) {
   const schema = Joi.object({
     name: Joi.string().min(3).max(140).required(),
-    email: Joi.string().min(3).max(320).required(),
+    email: Joi.string().min(3).max(320).required().email(),
     cityId: Joi.string().required(),
     sectorId: Joi.string().required()
   })
