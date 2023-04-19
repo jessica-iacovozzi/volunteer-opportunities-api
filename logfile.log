@@ -3,3 +3,11 @@
 {"errors":{"useUnifiedTopology":{}},"level":"error","message":"useUnifiedTopology: \"useUnifiedTopology\" is not a valid option to set useUnifiedTopology: \"useUnifiedTopology\" is not a valid option to set","stack":"SetOptionError: useUnifiedTopology: \"useUnifiedTopology\" is not a valid option to set\n    at Mongoose.set (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/index.js:250:17)\n    at Object.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/index.js:32:10)\n    at Module._compile (node:internal/modules/cjs/loader:1105:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)\n    at node:internal/main/run_main_module:17:47"}
 {"level":"info","message":"Connected to mongodb"}
 {"level":"info","message":"Connected to mongodb"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb"}
