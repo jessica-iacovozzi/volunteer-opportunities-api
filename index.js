@@ -13,9 +13,12 @@ const auth = require('./routes/auth')
 const express = require('express')
 const app = express()
 
-process.on('uncaughtException', (ex) => {
-  console.log('Uncaught exception caught...how ironic.')
-  winston.error(ex.message, ex)
+winston.exceptions.handle(
+  new winston.transports.File({ filename: 'exceptions.log '})
+)
+
+process.on('unhandledRejection', (ex) => {
+  throw ex
 })
 
 winston.add(new winston.transports.File({ filename: 'logfile.log' }))
