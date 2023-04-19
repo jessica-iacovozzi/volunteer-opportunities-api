@@ -1,3 +1,7 @@
+require('express-async-errors')
+require('winston-mongodb')
+const winston = require('winston')
+const error = require('./middleware/error')
 const config = require('config')
 const mongoose = require('mongoose')
 const sectors = require('./routes/sectors')
@@ -9,12 +13,24 @@ const auth = require('./routes/auth')
 const express = require('express')
 const app = express()
 
+process.on('uncaughtException', (ex) => {
+  console.log('Uncaught exception caught...how ironic.')
+  winston.error(ex.message, ex)
+})
+
+winston.add(new winston.transports.File({ filename: 'logfile.log' }))
+winston.add(new winston.transports.MongoDB({
+  db: 'mongodb://localhost/contriboot',
+  level: 'info',
+  options: { useUnifiedTopology: true }
+}))
+
 if (!config.get('jwtPrivateKey')) {
   console.log('FATAL ERROR: jwtPrivateKey not defined.')
   process.exit(1)
 }
 
-mongoose.connect('mongodb://localhost/contriboot')
+mongoose.connect('mongodb://localhost/contriboot', { useUnifiedTopology: true })
   .then(() => console.log('Connected to mongodb'))
   .catch(err => console.error('Could not connect to mongodb'))
 
@@ -25,6 +41,7 @@ app.use('/api/cities', cities)
 app.use('/api/opportunities', opportunities)
 app.use('/api/users', users)
 app.use('/api/auth', auth)
+app.use(error)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
