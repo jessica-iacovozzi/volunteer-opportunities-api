@@ -13,7 +13,7 @@ module.exports = function() {
   })
 
   winston.add(new winston.transports.MongoDB({
-    db: 'mongodb://localhost/contriboot',
+    db: 'mongodb://127.0.0.1:27017/contriboot',
     level: 'info',
     options: { useUnifiedTopology: true }
   }))
