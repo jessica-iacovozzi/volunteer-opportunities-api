@@ -1,4 +1,5 @@
 const request = require('supertest')
+const mongoose = require('mongoose')
 const { City } = require('../../models/city')
 const { User } = require('../../models/user')
 let server
@@ -38,7 +39,8 @@ describe('/api/cities', () => {
     })
 
     it('should return 404 if invalid ID is given', async () => {
-      const res = await request(server).get('/api/cities/1')
+      const id = new mongoose.Types.ObjectId()
+      const res = await request(server).get('/api/cities/' + id)
 
       expect(res.status).toBe(404)
     })
