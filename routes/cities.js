@@ -1,8 +1,8 @@
 const { City, validate } = require('../models/city')
 const express = require('express')
-const mongoose = require('mongoose')
 const router = express.Router()
 const auth = require('../middleware/auth')
+const validateObjectId = require('../middleware/validateObjectId')
 
 router.get('/', async (req, res) => {
   const cities = await City.find().sort('name')
@@ -46,13 +46,12 @@ router.post('/', auth, async (req, res) => {
 //   }
 // })
 
-router.get('/:id', async (req, res) => {
-  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
+router.get('/:id', validateObjectId, async (req, res) => {
     const city = await City.findById(req.params.id)
+
+    if (!city) return res.status(404).send('The city with the given ID was not found.')
+
     res.send(city)
-  } else {
-    return res.status(404).send('The city with the given ID was not found.')
-  }
 })
 
 module.exports = router
