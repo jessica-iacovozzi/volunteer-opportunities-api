@@ -1,5 +1,5 @@
 const winston = require('winston')
-require('winston-mongodb')
+require('winston-mongodb') // might need to comment that out
 require('express-async-errors')
 
 module.exports = function() {
