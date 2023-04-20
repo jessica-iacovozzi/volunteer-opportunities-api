@@ -7,6 +7,10 @@ require('./startup/routes')(app)
 require('./startup/db')()
 require('./startup/config')()
 
+if (process.env.NODE_ENV === 'production') {
+  require('./startup/prod')(app)
+}
+
 winston.add(new winston.transports.File({ filename: 'logfile.log' }))
 
 module.exports = app
