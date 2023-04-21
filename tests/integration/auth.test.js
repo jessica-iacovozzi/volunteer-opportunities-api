@@ -9,7 +9,7 @@ describe('auth middleware', () => {
    })
   afterEach(async () => {
     await City.collection.deleteMany({})
-    server.close()
+    await server.close()
   })
 
   let token

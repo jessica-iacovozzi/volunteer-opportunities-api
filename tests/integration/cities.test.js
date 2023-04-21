@@ -8,7 +8,7 @@ describe('/api/cities', () => {
   beforeEach(() => { server = require('../../startup/server') })
   afterEach(async () => {
     await City.collection.deleteMany({})
-    server.close()
+    await server.close()
   })
 
   describe('GET /', () => {
