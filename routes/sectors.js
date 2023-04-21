@@ -1,8 +1,8 @@
 const { Sector, validate } = require('../models/sector')
 const express = require('express')
-const mongoose = require('mongoose')
 const router = express.Router()
 const auth = require('../middleware/auth')
+const validateObjectId = require('../middleware/validateObjectId')
 
 router.get('/', async (req, res) => {
   const sectors = await Sector.find().sort('name')
@@ -46,13 +46,12 @@ router.post('/', auth, async (req, res) => {
 //   }
 // })
 
-router.get('/:id', async (req, res) => {
-  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-    const sector = await Sector.findById(req.params.id)
-    res.send(sector)
-  } else {
-    return res.status(404).send('The sector with the given ID was not found.')
-  }
+router.get('/:id', validateObjectId, async (req, res) => {
+  const sector = await Sector.findById(req.params.id)
+
+  if (!sector) return res.status(404).send('The sector with the given ID was not found.')
+
+  res.send(sector)
 })
 
 module.exports = router
