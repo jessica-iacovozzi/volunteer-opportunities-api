@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest --watchAll --verbose --runInBand --coverage"
   },
+  "engines": {
+    "node": "16.15.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
