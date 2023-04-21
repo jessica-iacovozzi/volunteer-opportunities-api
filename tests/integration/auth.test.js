@@ -9,6 +9,7 @@ describe('auth middleware', () => {
    })
   afterEach(async () => {
     await City.collection.deleteMany({})
+    await User.collection.deleteMany({})
     await server.close()
   })
 
@@ -41,5 +42,13 @@ describe('auth middleware', () => {
     const res = await exec()
 
     expect(res.status).toBe(200)
+  })
+
+  it('should return 400 if no email was given', async () => {
+    res = await request(server)
+      .post('/api/auth')
+      .send({ email: '', password: '123456' })
+
+    expect(res.status).toBe(400)
   })
 })
