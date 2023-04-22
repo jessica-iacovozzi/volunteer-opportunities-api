@@ -5,22 +5,22 @@ const auth = require('../middleware/auth')
 const validateObjectId = require('../middleware/validateObjectId')
 
 router.get('/', async (req, res) => {
-  const sectors = await Sector.find().sort('name')
+  const sectors = await Sector.find().sort('name').select('-__v')
   res.send(sectors)
 })
 
-router.post('/', auth, async (req, res) => {
-  const { error } = validate(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+// router.post('/', auth, async (req, res) => {
+//   const { error } = validate(req.body)
+//   if (error) return res.status(400).send(error.details[0].message)
 
-  let sector = new Sector({
-    name: req.body.name
-  })
+//   let sector = new Sector({
+//     name: req.body.name
+//   })
 
-  sector = await sector.save()
+//   sector = await sector.save()
 
-  res.send(sector)
-})
+//   res.send(sector)
+// })
 
 // router.put('/:id', async (req, res) => {
 //   const { error } = validate(req.body)

@@ -614,3 +614,174 @@
 {"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
 {"level":"info","message":"Listening on port 3000..."}
 {"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `sectors.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `sectors.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `cities.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `cities.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `cities.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `cities.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `sectors.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `sectors.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `cities.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `cities.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"error","message":"undefined Operation `sectors.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `sectors.findOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/Users/jiacovozzi/code/jessica-iacovozzi/volunteer-opportunities-api/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot_tests"}
+{"level":"info","message":"Listening on port 3000..."}
+{"level":"info","message":"Connected to mongodb://127.0.0.1:27017/contriboot"}
