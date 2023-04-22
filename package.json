@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --runInBand --coverage"
+    "test": "jest --watchAll --verbose --runInBand --coverage",
+    "start": "startup/server.js"
   },
   "engines": {
     "node": "16.15.1"
