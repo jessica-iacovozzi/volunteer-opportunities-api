@@ -2,10 +2,10 @@
   "name": "volunteer-opportunities-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose --runInBand --coverage",
-    "start": "startup/server.js"
+    "start": "node startup/server.js"
   },
   "engines": {
     "node": "16.15.1"
