@@ -5,7 +5,7 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 
 router.get('/', async (req, res) => {
-  const organisations = await Organisation.find().sort('name')
+  const organisations = await Organisation.find().sort('name').select('-__v')
   res.send(organisations)
 })
 
