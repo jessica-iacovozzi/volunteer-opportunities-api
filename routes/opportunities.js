@@ -28,7 +28,7 @@ router.post('/', auth, async (req, res) => {
 
   opportunity = await opportunity.save()
 
-  res.send(opportunity)
+  res.status(201).send(opportunity)
 })
 
 // router.put('/:id', async (req, res) => {

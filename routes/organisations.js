@@ -24,7 +24,7 @@ router.post('/', auth, async (req, res) => {
 
   organisation = await organisation.save()
 
-  res.send(organisation)
+  res.status(201).send(organisation)
 })
 
 // router.put('/:id', async (req, res) => {
