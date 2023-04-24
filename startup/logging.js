@@ -1,5 +1,6 @@
 const winston = require('winston')
-require('winston-mongodb') // might need to comment that out
+require('dotenv').config();
+require('winston-mongodb')
 require('express-async-errors')
 
 module.exports = function() {
@@ -13,7 +14,7 @@ module.exports = function() {
   })
 
   winston.add(new winston.transports.MongoDB({
-    db: 'mongodb://127.0.0.1:27017/contriboot',
+    db: process.env.MONGODB,
     level: 'info',
     options: { useUnifiedTopology: true }
   }))
