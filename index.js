@@ -11,6 +11,6 @@ if (process.env.NODE_ENV === 'production') {
   require('./startup/prod')(app)
 }
 
-winston.add(new winston.transports.File({ filename: 'logfile.log' }))
+winston.add(new winston.transports.File({ filename: './logs/logfile.log' }))
 
 module.exports = app
