@@ -50,7 +50,7 @@ function validateOrganisation(organisation) {
     name: Joi.string().min(3).max(140).required(),
     email: Joi.string().min(3).max(320).email(),
     link: Joi.string().min(5).max(255),
-    registration_number: Joi.regex(RegExp(/[0-9]{9}(RR)(0001)/)).string(),
+    registration_number: Joi.pattern(new RegExp(/[0-9]{9}(RR)(0001)/)).string(),
     cities: Joi.array().required(),
     sector: Joi.string().required()
   })
