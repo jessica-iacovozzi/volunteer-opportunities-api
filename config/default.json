@@ -1,4 +1,3 @@
 {
-  "jwtPrivateKey": "contriboot_jwtPrivateKey",
-  "db": "mongodb://127.0.0.1:27017/contriboot"
+  "jwtPrivateKey": "contriboot_jwtPrivateKey"
 }

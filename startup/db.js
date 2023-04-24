@@ -1,9 +1,8 @@
 const winston = require('winston')
 const mongoose = require('mongoose')
-const config = require('config')
+require('dotenv').config();
 
 module.exports = function() {
-  const db = config.get('db')
-  mongoose.connect(db, { useUnifiedTopology: true })
-    .then(() => winston.info(`Connected to ${db}`))
+  mongoose.connect(process.env.MONGODB, { useUnifiedTopology: true })
+    .then(() => winston.info(`Connected to ${process.env.MONGODB}`))
 }
