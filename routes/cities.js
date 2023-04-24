@@ -5,22 +5,22 @@ const auth = require('../middleware/auth')
 const validateObjectId = require('../middleware/validateObjectId')
 
 router.get('/', async (req, res) => {
-  const cities = await City.find().sort('name')
+  const cities = await City.find().sort('name').select('-__v')
   res.send(cities)
 })
 
-router.post('/', auth, async (req, res) => {
-  const { error } = validate(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
+// router.post('/', auth, async (req, res) => {
+//   const { error } = validate(req.body)
+//   if (error) return res.status(400).send(error.details[0].message)
 
-  let city = new City({
-    name: req.body.name
-  })
+//   let city = new City({
+//     name: req.body.name
+//   })
 
-  city = await city.save()
+//   city = await city.save()
 
-  res.send(city)
-})
+//   res.send(city)
+// })
 
 // router.put('/:id', async (req, res) => {
 //   const { error } = validate(req.body)
