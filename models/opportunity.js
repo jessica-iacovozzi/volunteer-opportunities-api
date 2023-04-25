@@ -25,7 +25,7 @@ function validateOpportunity(opportunity) {
   const schema = Joi.object({
     title: Joi.string().min(10).max(140).required(),
     description: Joi.string().min(10).max(255).required(),
-    organizationId: Joi.string().min(3).max(140).required()
+    organization: Joi.string().min(3).max(140).required()
   })
 
   return schema.validate(opportunity)
