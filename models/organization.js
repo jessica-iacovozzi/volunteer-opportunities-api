@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
-// const { citySchema } = require('./city')
-// const { sectorSchema } = require('./sector')
+const sector = require('./sector')
 
 const organizationSchema = new mongoose.Schema({
   name: {

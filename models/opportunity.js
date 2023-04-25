@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
-const { organizationSchema } = require('./organization')
+const organization = require('./organization')
 
 const Opportunity = mongoose.model('Opportunity', new mongoose.Schema({
   title: {
