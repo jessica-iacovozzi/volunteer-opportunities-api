@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Joi = require('joi')
 const { sectorSchema } = require('./sector')
 
-const organisationSchema = new mongoose.Schema({
+const organizationSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -35,9 +35,9 @@ const organisationSchema = new mongoose.Schema({
   }
 })
 
-const Organisation = mongoose.model('Organisation', organisationSchema)
+const Organization = mongoose.model('Organization', organizationSchema)
 
-function validateOrganisation(organisation) {
+function validateOrganization(organization) {
   const schema = Joi.object({
     name: Joi.string().min(3).max(140).required(),
     email: Joi.string().min(3).max(320).email(),
@@ -46,9 +46,9 @@ function validateOrganisation(organisation) {
     sectorId: Joi.required()
   })
 
-  return schema.validate(organisation)
+  return schema.validate(organization)
 }
 
-exports.organisationSchema = organisationSchema
-exports.Organisation = Organisation
-exports.validate = validateOrganisation
+exports.organizationSchema = organizationSchema
+exports.Organization = Organization
+exports.validate = validateOrganization
