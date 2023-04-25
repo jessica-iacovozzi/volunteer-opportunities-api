@@ -21,7 +21,10 @@ router.post('/', auth, async (req, res) => {
     title: req.body.name,
     description: req.body.email,
     link: req.body.link,
-    organization: organization.name
+    organization: {
+      _id: organization._id,
+      name: organization.name
+    }
   })
 
   opportunity = await opportunity.save()
