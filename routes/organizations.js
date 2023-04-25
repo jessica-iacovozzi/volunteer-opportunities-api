@@ -16,7 +16,6 @@ router.post('/', auth, async (req, res) => {
   let organization = new Organization({
     name: req.body.name,
     email: req.body.email,
-    link: req.body.link,
     registration_number: req.body.registration_number,
     sector: req.body.sector
   })

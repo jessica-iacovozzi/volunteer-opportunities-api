@@ -16,6 +16,7 @@ router.post('/', auth, async (req, res) => {
   let opportunity = new Opportunity({
     title: req.body.name,
     description: req.body.email,
+    link: req.body.link,
     organization: req.body.organization
   })
 
