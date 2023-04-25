@@ -8,8 +8,7 @@ describe('auth middleware', () => {
     token = new User().generateAuthToken()
   })
   afterAll(async () => {
-    await Sector.collection.deleteMany({})
-    await User.collection.deleteMany({})
+    await Sector.collection.deleteOne({ name: 'Test Sector' })
     await server.close()
   })
 
@@ -19,7 +18,7 @@ describe('auth middleware', () => {
     return request(server)
       .post('/api/sectors')
       .set('x-api-key', token)
-      .send({ name: 'Animal Welfare' })
+      .send({ name: 'Test Sector' })
   }
 
   it('should return 401 if no token is provided', async () => {
@@ -41,7 +40,7 @@ describe('auth middleware', () => {
   it('should return 400 if no email was given', async () => {
     res = await request(server)
       .post('/api/auth')
-      .send({ email: '', password: '123456' })
+      .send({ email: '', password: 'Abc1234*' })
 
     expect(res.status).toBe(400)
   })

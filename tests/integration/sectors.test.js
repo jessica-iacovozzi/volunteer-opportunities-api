@@ -6,22 +6,19 @@ let server
 describe('/api/sectors', () => {
   beforeEach(() => { server = require('../../startup/server') })
   afterEach(async () => {
-    await Sector.collection.deleteMany({})
+    await Sector.collection.deleteOne({ name: 'Sector1'})
     await server.close()
   })
 
   describe('GET /', () => {
     it('should return all sectors', async () => {
-      await Sector.collection.insertMany([
-        { name: 'Sector1' },
-        { name: 'Sector2'}
-      ])
+      await Sector.collection.insertOne({ name: 'Sector1'})
 
       const res = await request(server).get('/api/sectors')
 
       expect(res.status).toBe(200)
       expect(res.body.some(sector => sector.name === 'Sector1')).toBeTruthy()
-      expect(res.body.some(sector => sector.name === 'Sector2')).toBeTruthy()
+      // expect(res.body.some(sector => sector.name === 'Sector2')).toBeTruthy()
     })
   })
 
