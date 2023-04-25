@@ -14,15 +14,14 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
-  const organization = await Organization.findById(req.body.organizationId)
+  const organization = await Organization.findById(req.body.organization)
   if (!organization) return res.status(400).send('Invalid organization.')
 
   let opportunity = new Opportunity({
     title: req.body.name,
     description: req.body.email,
     organization: {
-      _id: organization._id,
-      name: organization.name
+      _id: organization._id
     }
   })
 

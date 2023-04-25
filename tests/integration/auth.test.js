@@ -15,6 +15,7 @@ describe('auth middleware', () => {
   const exec = () => {
     return request(server)
       .post('/api/sectors')
+      .set('x-api-key', token)
       .send({ name: 'Animal Welfare' })
   }
 

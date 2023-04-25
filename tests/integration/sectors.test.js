@@ -1,7 +1,6 @@
 const request = require('supertest')
 const mongoose = require('mongoose')
 const { Sector } = require('../../models/sector')
-const { User } = require('../../models/user')
 let server
 
 describe('/api/sectors', () => {
