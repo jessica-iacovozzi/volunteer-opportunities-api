@@ -2,5 +2,6 @@
 	"name": "Shelter Movers",
 	"email": "info@sheltermovers.com",
   "link": "sheltermovers.com",
+	"cities": ["Calgary", "Edmonton", "Moncton", "Montreal", "Nova Scotia", "Ottawa", "Toronto", "Waterloo", "Vancouver"],
 	"sector": "Social Services"
 }

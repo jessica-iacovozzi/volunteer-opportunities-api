@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
-const { sectorSchema } = require('./sector')
+// const { citySchema } = require('./city')
+// const { sectorSchema } = require('./sector')
 
 const organizationSchema = new mongoose.Schema({
   name: {
@@ -29,6 +30,10 @@ const organizationSchema = new mongoose.Schema({
     type: String,
     match: /[0-9]{9}(RR)(0001)/
   },
+  cities: {
+    type: [String],
+    required: true
+  },
   sector: {
     type: sectorSchema,
     required: true
@@ -43,7 +48,8 @@ function validateOrganization(organization) {
     email: Joi.string().min(3).max(320).email(),
     link: Joi.string().min(5).max(255),
     registration_number: Joi.string().pattern(new RegExp('^[0-9]{9}(RR)(0001)$')),
-    sectorId: Joi.required()
+    cities: Joi.array().required(),
+    sector: Joi.string().required()
   })
 
   return schema.validate(organization)
