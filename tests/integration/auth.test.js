@@ -1,12 +1,15 @@
 const request = require('supertest')
 const { Sector } = require('../../models/sector')
+const { User } = require('../../models/user')
 
 describe('auth middleware', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     server = require('../../startup/server')
+    token = new User().generateAuthToken()
   })
-  afterEach(async () => {
+  afterAll(async () => {
     await Sector.collection.deleteMany({})
+    await User.collection.deleteMany({})
     await server.close()
   })
 
