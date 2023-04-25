@@ -1,7 +1,7 @@
 const request = require('supertest')
 const { User } = require('../../models/user')
 const { Opportunity } = require('../../models/opportunity')
-const { Organisation } = require('../../models/organisation')
+const { Organization } = require('../../models/organization')
 
 describe('auth middleware', () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe('auth middleware', () => {
   afterEach(async () => {
     await Opportunity.collection.deleteMany({})
     await User.collection.deleteMany({})
-    await Organisation.collection.deleteMany({})
+    await Organization.collection.deleteMany({})
     await server.close()
   })
 
@@ -23,7 +23,7 @@ describe('auth middleware', () => {
       .set('x-api-key', token)
       .send({ title: 'New opportunity',
               description: 'Opportunity description',
-              organisationId: '64434edc2d49a774937f219d' })
+              organizationId: '64434edc2d49a774937f219d' })
   }
 
   it('should return 401 if no token is provided', async () => {

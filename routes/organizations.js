@@ -1,29 +1,29 @@
-const { Organisation, validate } = require('../models/organisation')
+const { Organization, validate } = require('../models/organization')
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const auth = require('../middleware/auth')
 
 router.get('/', async (req, res) => {
-  const organisations = await Organisation.find().sort('name').select('-__v')
-  res.send(organisations)
+  const organizations = await Organization.find().sort('name').select('-__v')
+  res.send(organizations)
 })
 
 router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
-  let organisation = new Organisation({
+  let organization = new Organization({
     name: req.body.name,
     email: req.body.email,
     link: req.body.link,
     registration_number: req.body.registration_number,
-    sector: req.body.sector
+    sectorId: req.body.sectorId
   })
 
-  organisation = await organisation.save()
+  organization = await organization.save()
 
-  res.status(201).send(organisation)
+  res.status(201).send(organization)
 })
 
 // router.put('/:id', async (req, res) => {
@@ -34,7 +34,7 @@ router.post('/', auth, async (req, res) => {
 //   if (!sector) return res.status(400).send('Invalid sector.')
 
 //   if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-//     const organisation = await Organisation.findByIdAndUpdate(req.params.id, {
+//     const organization = await Organization.findByIdAndUpdate(req.params.id, {
 //       name: req.body.name,
 //       email: req.body.email,
 //       link: req.body.link,
@@ -42,28 +42,28 @@ router.post('/', auth, async (req, res) => {
 //       sector: req.body.sector
 //     }, { new: true })
 
-//     res.send(organisation)
+//     res.send(organization)
 //   } else {
-//     return res.status(404).send('The organisation with the given ID was not found.')
+//     return res.status(404).send('The organization with the given ID was not found.')
 //   }
 // })
 
 // router.delete('/:id', async (req, res) => {
 //   if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-//     const organisation = await Organisation.findByIdAndRemove(req.params.id)
-//     res.send(organisation)
+//     const organization = await Organization.findByIdAndRemove(req.params.id)
+//     res.send(organization)
 //   } else {
-//     return res.status(404).send('The organisation with the given ID was not found.')
+//     return res.status(404).send('The organization with the given ID was not found.')
 //   }
 
 // })
 
 router.get('/:id', async (req, res) => {
   if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-    const organisation = await Organisation.findById(req.params.id)
-    res.send(organisation)
+    const organization = await Organization.findById(req.params.id)
+    res.send(organization)
   } else {
-    return res.status(404).send('The organisation with the given ID was not found.')
+    return res.status(404).send('The organization with the given ID was not found.')
   }
 })
 

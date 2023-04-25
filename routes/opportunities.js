@@ -1,5 +1,5 @@
 const { Opportunity, validate } = require('../models/opportunity')
-const { Organisation } = require('../models/organisation')
+const { Organization } = require('../models/organization')
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
@@ -14,16 +14,13 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
-  const organisation = await Organisation.findById(req.body.organisationId)
-  if (!organisation) return res.status(400).send('Invalid organisation.')
+  const organization = await Organization.findById(req.body.organizationId)
+  if (!organization) return res.status(400).send('Invalid organization.')
 
   let opportunity = new Opportunity({
     title: req.body.name,
     description: req.body.email,
-    organisation: {
-      _id: organisation._id,
-      name: organisation.name
-    }
+    organizationId: req.body.organizationId
   })
 
   opportunity = await opportunity.save()
@@ -35,16 +32,16 @@ router.post('/', auth, async (req, res) => {
 //   const { error } = validate(req.body)
 //   if (error) return res.status(400).send(error.details[0].message)
 
-//   const organisation = await Organisation.findById(req.body.organisationId)
-//   if (!organisation) return res.status(400).send('Invalid organisation.')
+//   const organization = await Organization.findById(req.body.organizationId)
+//   if (!organization) return res.status(400).send('Invalid organization.')
 
 //   if(mongoose.Types.ObjectId.isValid(req.params.id)) {
 //     const opportunity = await Opportunity.findByIdAndUpdate(req.params.id, {
 //       title: req.body.name,
 //     description: req.body.email,
-//     organisation: {
-//       _id: organisation._id,
-//       name: organisation.name
+//     organization: {
+//       _id: organization._id,
+//       name: organization.name
 //     }
 //     }, { new: true })
 

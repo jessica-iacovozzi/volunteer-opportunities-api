@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 describe('auth middleware', () => {
 it('should populate req.user with the payload of a valid JWT', () => {
-    const user = { _id: new mongoose.Types.ObjectId().toHexString(), isAdmin: true }
+    const user = { _id: new mongoose.Types.ObjectId().toHexString() }
     const token = new User(user).generateAuthToken()
     const req = {
       header: jest.fn().mockReturnValue(token)
