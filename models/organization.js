@@ -43,7 +43,7 @@ function validateOrganization(organization) {
     email: Joi.string().min(3).max(320).email(),
     link: Joi.string().min(5).max(255),
     registration_number: Joi.string().pattern(new RegExp('^[0-9]{9}(RR)(0001)$')),
-    sectorId: Joi.string().required()
+    sectorId: Joi.required()
   })
 
   return schema.validate(organization)

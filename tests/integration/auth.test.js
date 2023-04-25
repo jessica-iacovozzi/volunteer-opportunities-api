@@ -1,15 +1,12 @@
 const request = require('supertest')
-const { User } = require('../../models/user')
 const { Sector } = require('../../models/sector')
 
 describe('auth middleware', () => {
   beforeEach(() => {
     server = require('../../startup/server')
-    token = new User().generateAuthToken()
   })
   afterEach(async () => {
     await Sector.collection.deleteMany({})
-    await User.collection.deleteMany({})
     await server.close()
   })
 
@@ -18,7 +15,6 @@ describe('auth middleware', () => {
   const exec = () => {
     return request(server)
       .post('/api/sectors')
-      .set('x-api-key', token)
       .send({ name: 'Animal Welfare' })
   }
 
