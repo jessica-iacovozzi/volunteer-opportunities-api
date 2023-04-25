@@ -1,4 +1,5 @@
 const { Organization, validate } = require('../models/organization')
+const { Sector } = require('../models/sector')
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
@@ -13,11 +14,14 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
+  const sector = await Sector.findById(req.body.sector)
+  if (!sector) return res.status(400).send('Invalid sector.')
+
   let organization = new Organization({
     name: req.body.name,
     email: req.body.email,
     registration_number: req.body.registration_number,
-    sector: req.body.sector
+    sector: sector
   })
 
   organization = await organization.save()

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
-const sector = require('./sector')
+const { Sector } = require('./sector')
 
 const organizationSchema = new mongoose.Schema({
   name: {

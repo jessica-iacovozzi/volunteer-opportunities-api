@@ -1,4 +1,5 @@
 const { Opportunity, validate } = require('../models/opportunity')
+const { Organization } = require('../models/organization')
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
@@ -13,11 +14,14 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
+  const organization = await Organization.findById(req.body.organization)
+  if (!organization) return res.status(400).send('Invalid organization.')
+
   let opportunity = new Opportunity({
     title: req.body.name,
     description: req.body.email,
     link: req.body.link,
-    organization: req.body.organization
+    organization: organization
   })
 
   opportunity = await opportunity.save()
