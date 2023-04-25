@@ -19,8 +19,7 @@ const organizationSchema = new mongoose.Schema({
     trim: true
   },
   registration_number: {
-    type: String,
-    match: /[0-9]{9}(RR)(0001)/
+    type: String
   },
   sector: {
     type: mongoose.Schema.Types.ObjectId,
@@ -34,7 +33,7 @@ function validateOrganization(organization) {
   const schema = Joi.object({
     name: Joi.string().min(3).max(140).required(),
     email: Joi.string().min(3).max(320).email(),
-    registration_number: Joi.string().pattern(new RegExp('^[0-9]{9}(RR)(0001)$')),
+    registration_number: Joi.string(),
     sector: Joi.required()
   })
 
