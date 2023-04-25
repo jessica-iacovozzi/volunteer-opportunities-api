@@ -21,7 +21,7 @@ router.post('/', auth, async (req, res) => {
     name: req.body.name,
     email: req.body.email,
     registration_number: req.body.registration_number,
-    sector: sector
+    sector: sector.name
   })
 
   organization = await organization.save()
