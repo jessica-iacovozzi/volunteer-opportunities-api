@@ -18,8 +18,8 @@ router.post('/', auth, async (req, res) => {
   if (!organization) return res.status(400).send('Invalid organization.')
 
   let opportunity = new Opportunity({
-    title: req.body.name,
-    description: req.body.email,
+    title: req.body.title,
+    description: req.body.description,
     link: req.body.link,
     organization: {
       _id: organization._id,
