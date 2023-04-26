@@ -71,8 +71,13 @@ router.post('/', auth, async (req, res) => {
 // })
 
 router.get('/:id', async (req, res) => {
-  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-    const opportunity = await Opportunity.findById(req.params.id)
+  let opportunity = ''
+
+  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+    opportunity = await Opportunity.findById(req.params.id)
+  }
+
+  if(opportunity) {
     res.send(opportunity)
   } else {
     return res.status(404).send('The opportunity with the given ID was not found.')
