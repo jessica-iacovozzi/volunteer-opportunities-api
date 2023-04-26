@@ -70,8 +70,13 @@ router.post('/', auth, async (req, res) => {
 // })
 
 router.get('/:id', async (req, res) => {
-  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
-    const organization = await Organization.findById(req.params.id)
+  let organization = ''
+
+  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+    organization = await Organization.findById(req.params.id)
+  }
+
+  if (organization) {
     res.send(organization)
   } else {
     return res.status(404).send('The organization with the given ID was not found.')

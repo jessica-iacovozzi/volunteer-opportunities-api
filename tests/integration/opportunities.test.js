@@ -12,7 +12,6 @@ describe('opportunity route', () => {
   })
 
   let token
-  let endpoint
   let id
 
   const post = () => {

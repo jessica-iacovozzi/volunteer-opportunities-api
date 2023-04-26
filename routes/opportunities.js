@@ -77,7 +77,7 @@ router.get('/:id', async (req, res) => {
     opportunity = await Opportunity.findById(req.params.id)
   }
 
-  if(opportunity) {
+  if (opportunity) {
     res.send(opportunity)
   } else {
     return res.status(404).send('The opportunity with the given ID was not found.')
