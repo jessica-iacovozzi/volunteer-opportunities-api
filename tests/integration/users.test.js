@@ -1,6 +1,6 @@
 const request = require('supertest')
 
-describe('user route', () => {
+describe('/api/users', () => {
   beforeAll(() => {
     server = require('../../startup/server')
   })
