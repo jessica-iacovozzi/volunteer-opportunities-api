@@ -6,7 +6,7 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 
 router.get('/', async (req, res) => {
-  const opportunities = await Opportunity.find().sort('name').select('-__v')
+  const opportunities = await Opportunity.find().sort('name').select('-__v').populate('organization')
   res.send(opportunities)
 })
 
