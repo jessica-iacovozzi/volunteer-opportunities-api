@@ -13,7 +13,7 @@ const Opportunity = mongoose.model('Opportunity', new mongoose.Schema({
     type: String,
     required: true,
     minlength: 10,
-    maxlength: 255
+    maxlength: 999
   },
   link: {
     type: String,
@@ -31,7 +31,7 @@ const Opportunity = mongoose.model('Opportunity', new mongoose.Schema({
 function validateOpportunity(opportunity) {
   const schema = Joi.object({
     title: Joi.string().min(10).max(140).required(),
-    description: Joi.string().min(10).max(255).required(),
+    description: Joi.string().min(10).max(999).required(),
     link: Joi.string().min(5).max(255),
     organization: Joi.required()
   })
