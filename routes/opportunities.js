@@ -6,15 +6,15 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 
 router.get('/', async (req, res) => {
-  const opportunities = await Opportunity.find().sort('name').select('-__v')
-                                         .populate({
-                                            path: "organization",
-                                            select: "-__v",
-                                            populate: {
-                                              path: "sector",
-                                              select: "-__v"
-                                            }
-                                          })
+  const opportunities = await Opportunity.find().sort('name').select('-__v').populate({
+                                                                              path: "organization",
+                                                                              select: "-__v",
+                                                                              populate: {
+                                                                                path: "sector",
+                                                                                select: "-__v"
+                                                                              }
+                                                                            })
+
   res.send(opportunities)
 })
 
@@ -74,7 +74,15 @@ router.get('/:id', async (req, res) => {
   let opportunity = ''
 
   if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-    opportunity = await Opportunity.findById(req.params.id)
+    opportunity = await Opportunity.findById(req.params.id).select('-__v').populate({
+                                                                            path: "organization",
+                                                                            select: "-__v",
+                                                                            populate: {
+                                                                              path: "sector",
+                                                                              select: "-__v"
+                                                                            }
+                                                                          })
+
   }
 
   if (opportunity) {

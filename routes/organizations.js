@@ -73,7 +73,7 @@ router.get('/:id', async (req, res) => {
   let organization = ''
 
   if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-    organization = await Organization.findById(req.params.id)
+    organization = await Organization.findById(req.params.id).select('-__v').populate('sector', '-__v')
   }
 
   if (organization) {
