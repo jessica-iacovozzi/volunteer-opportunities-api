@@ -6,7 +6,17 @@ const validateObjectId = require('../middleware/validateObjectId')
 
 router.get('/', async (req, res) => {
   const sectors = await Sector.find().sort('name').select('-__v')
-  res.send(sectors)
+
+  const filters = req.query;
+  const filteredSectors = sectors.filter(sector => {
+    let isValid = true;
+    for (key in filters) {
+      isValid = isValid && sector[key] == filters[key];
+    }
+    return isValid;
+  })
+
+  res.send(filteredSectors)
 })
 
 router.post('/', auth, async (req, res) => {
