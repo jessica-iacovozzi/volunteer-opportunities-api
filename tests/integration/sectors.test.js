@@ -65,7 +65,7 @@ describe('/api/sectors', () => {
       expect(res.status).toBe(401)
     })
 
-    it('should return 400 if sector is less than 5 characters', async () => {
+    it('should return 400 if sector name is less than 5 characters', async () => {
       name = 'Sect'
 
       const res = await exec()
@@ -73,7 +73,7 @@ describe('/api/sectors', () => {
       expect(res.status).toBe(400)
     })
 
-    it('should return 400 if sector is more than 50 characters', async () => {
+    it('should return 400 if sector name is more than 50 characters', async () => {
       name = new Array(52).join('a')
 
       const res = await exec()

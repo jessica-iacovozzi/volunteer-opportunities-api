@@ -29,7 +29,7 @@ describe('auth', () => {
               password: 'Abc1234*' })
   }
 
-  describe('auth route', () => {
+  describe('get auth token', () => {
     it('should return 400 if invalid email is given', async () => {
       email = 'testing@email.com'
 
